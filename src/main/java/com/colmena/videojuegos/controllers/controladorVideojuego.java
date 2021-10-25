@@ -22,7 +22,8 @@ public class controladorVideojuego {
 
             return "view/inicio";
         }catch (Exception e){
-            return "";
+            model.addAttribute("error", e.getMessage());
+            return "error";
         }
     }
 }

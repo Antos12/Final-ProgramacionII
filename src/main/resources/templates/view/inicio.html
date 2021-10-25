@@ -7,38 +7,40 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-    <a class="navbar-brand" th:href="@{/inicio}">Replay</a>
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/inicio}">Replay</a>
 
-    <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
-            <li class="nav-item active">
-                <a class="nav-link" th:href="@{/inicio}">Inicio <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/crud}">CRUD</a>
-            </li>
-
-
-        </ul>
-        <form class="d-flex">
-            <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/inicio}">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/crud}">CRUD</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
     </div>
 </nav>
 <div class="container">
-    <div class="row">
+    <div class="row ">
         <div class="card-deck">
 
-          <div class="card" th:each="videojuego : ${videojuegos}"  >
+          <div class="card mt-5" th:each="videojuego : ${videojuegos}"  >
               <img th:src="${videojuego.imagen}" class="card-img-top" alt="...">
              <div class="card-body">
                 <h5 class="card-title" th:text="${videojuego.titulo}">titulo</h5>
                <p class="card-text" th:text="${videojuego.descripcion}">  descripcion </p>
                  <p class="card-text2">Precio : $ <span th:text="${videojuego.precio}">precio </span></p>
+                 <a th:href="@{detalle/id}"><button type="button" class="btn btn-secondary">Comprar</button></a>
              </div>
              <div class="card-footer">
                 <small class="text-muted">Last updated 3 mins ago</small>
+
              </div>
           </div>
 
