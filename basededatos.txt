@@ -1,0 +1,37 @@
+CREATE DATABASE  `videojuegos`;
+USE `videojuegos`;
+DROP TABLE IF EXISTS `categorias`;
+CREATE TABLE `categorias` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `activo` bit(1) NOT NULL,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+insert  into `categorias`(`id`,`activo`,`nombre`) values (1,'','Sandbox'),(2,'','Aventura'),(3,'\0','Terror');
+DROP TABLE IF EXISTS `estudios`;
+
+CREATE TABLE `estudios` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `activo` bit(1) NOT NULL,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+insert  into `estudios`(`id`,`activo`,`nombre`) values (1,'','Estudio 1'),(2,'','Estudio 2'),(3,'\0','Estudio Test');
+DROP TABLE IF EXISTS `videojuegos`;
+cREATE TABLE `videojuegos` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `activo` bit(1) NOT NULL,
+  `descripcion` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_lanzamiento` datetime DEFAULT NULL,
+  `imagen` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `precio` float NOT NULL,
+  `stock` int(11) NOT NULL,
+  `titulo` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fk_categoria` bigint(20) NOT NULL,
+  `fk_estudio` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK54ev8cdsfhbdfxufd9wc8g23x` (`fk_categoria`),
+  KEY `FKev9v8m1hnvqlpne73pgko027c` (`fk_estudio`),
+  CONSTRAINT `FK54ev8cdsfhbdfxufd9wc8g23x` FOREIGN KEY (`fk_categoria`) REFERENCES `categorias` (`id`),
+  CONSTRAINT `FKev9v8m1hnvqlpne73pgko027c` FOREIGN KEY (`fk_estudio`) REFERENCES `estudios` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
