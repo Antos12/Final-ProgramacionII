@@ -6,26 +6,7 @@
     <title>Inicio</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" th:href="@{/inicio}">Replay</a>
-
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/inicio}">Inicio <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/crud}">CRUD</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-</nav>
+ <nav th:replace="componets/navbar :: nav_bar"></nav>
 <div class="container">
     <div class="row ">
         <div class="card-deck">
