@@ -12,7 +12,8 @@
 <div class="card " style="margin:11em 1px" >
     <div class="row no-gutters" th:object="${videojuego}">
         <div class="col-md-4">
-            <img th:src="*{imagen}" alt="" class="img-fluid " style="margin:2em 0">
+            <img th:src="@{'/imagenes/'} + ${videojuego.imagen}" class="img-fluid" style="margin:2em 0" alt="videojuego imagen">
+
         </div>
         <div class="col-md-8">
             <div class="card-body">

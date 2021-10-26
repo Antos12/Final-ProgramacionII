@@ -12,7 +12,7 @@
         <div class="card-deck">
 
           <div class="card mt-5" th:each="videojuego : ${videojuegos}"  >
-              <img th:src="${videojuego.imagen}" class="card-img-top" alt="...">
+              <img th:src="@{'/imagenes/'} + ${videojuego.imagen}" class="card-img-top" alt="videojuego imagen">
              <div class="card-body">
                 <h5 class="card-title" th:text="${videojuego.titulo}">titulo</h5>
                <p class="card-text" th:text="${videojuego.descripcion}">  descripcion </p>
