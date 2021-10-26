@@ -62,6 +62,8 @@ public class ServicioVideojuego implements ServicioBase<Videojuego>{
         }
     }
 
+
+
     @Override
     @Transactional
     public boolean deleteById(long id) throws Exception {
@@ -98,6 +100,16 @@ public class ServicioVideojuego implements ServicioBase<Videojuego>{
             Optional<Videojuego> opt = this.repositorio.findByIdAndActivo(id);
             return opt.get();
         } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Transactional
+    public List<Videojuego> findByTitle(String q) throws Exception{
+        try{
+            List<Videojuego> entities=this.repositorio.findByTitle(q);
+            return entities;
+        }catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }

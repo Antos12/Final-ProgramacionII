@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Busqueda</title>
+</head>
+<body>
+<nav th:replace="componets/navbar :: nav_bar"></nav>
+<div class="container">
+    <div class="row ">
+        <div class="card-deck" th:if="${videojuegos.size}">
+            <h3>Resultados:</h3>
+
+            <div class="card mt-5" th:each="videojuego : ${videojuegos}"  >
+                <img th:src="${videojuego.imagen}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${videojuego.titulo}">titulo</h5>
+                    <p class="card-text" th:text="${videojuego.descripcion}">  descripcion </p>
+                    <p class="card-text2">Precio : $ <span th:text="${videojuego.precio}">precio </span></p>
+                    <a th:href="@{detalle/{id}(id=${videojuego.id})}"><button type="button" class="btn btn-secondary">Ver en detalle</button></a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+
+                </div>
+            </div>
+
+        </div>
+        <div th:unless="${videojuegos.size}">
+            <div class="alert alert-secondary" role="alert" style="margin:2em 0">
+                No hay resultados para la busqueda realizada
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
