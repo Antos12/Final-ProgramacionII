@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -25,6 +26,7 @@ public class Videojuego {
    private String imagen;
    private float precio;
    private short stock;
+   @DateTimeFormat(pattern = "yyyy-MM-dd")
    private  Date fechaLanzamiento;
    private  boolean activo = true;
 
