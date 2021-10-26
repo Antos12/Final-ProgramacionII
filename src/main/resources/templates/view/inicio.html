@@ -36,7 +36,7 @@
                 <h5 class="card-title" th:text="${videojuego.titulo}">titulo</h5>
                <p class="card-text" th:text="${videojuego.descripcion}">  descripcion </p>
                  <p class="card-text2">Precio : $ <span th:text="${videojuego.precio}">precio </span></p>
-                 <a th:href="@{detalle/id}"><button type="button" class="btn btn-secondary">Comprar</button></a>
+                 <a th:href="@{detalle/{id}(id=${videojuego.id})}"><button type="button" class="btn btn-secondary">Ver en detalle</button></a>
              </div>
              <div class="card-footer">
                 <small class="text-muted">Last updated 3 mins ago</small>
