@@ -8,10 +8,10 @@
 <body>
  <nav th:replace="componets/navbar :: nav_bar"></nav>
 <div class="container">
-    <div class="row ">
+    <div class="row mt-5 ">
         <div class="card-deck">
 
-          <div class="card mt-5" th:each="videojuego : ${videojuegos}"  >
+          <div class="col-12 col-md-3" th:each="videojuego : ${videojuegos}" style="border-radius: 55px 50px 50px 50px / 25px 26px 25px 25px; background-color: #0096881a" >
               <img th:src="@{'/imagenes/'} + ${videojuego.imagen}" class="card-img-top" alt="videojuego imagen">
              <div class="card-body">
                 <h5 class="card-title" th:text="${videojuego.titulo}">titulo</h5>
